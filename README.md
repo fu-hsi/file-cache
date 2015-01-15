@@ -2,7 +2,7 @@ FileCache
 =========
 Usage
 -----
-```
+```php
 <?php
 use FuHsi\FileCache;
 require '../FileCache/FileCache.php';
