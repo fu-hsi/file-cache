@@ -29,7 +29,7 @@ var_dump($result);
 ```
 Cache file source
 -----------------
-```
+```php
 <?php return array (
   0 => 1,
   1 => 2,
