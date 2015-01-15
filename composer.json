@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "FuHsi\\FileCache": "FileCache"
+            "FuHsi\\FileCache\\": "FileCache"
         }
     }    
 }
