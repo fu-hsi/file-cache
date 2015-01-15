@@ -4,7 +4,7 @@ Usage
 -----
 ```php
 <?php
-use FuHsi\FileCache;
+use FuHsi\FileCache\FileCache;
 require '../FileCache/FileCache.php';
 
 $options = array(

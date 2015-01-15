@@ -9,7 +9,7 @@
  * @link        https://github.com/fu-hsi/file-cache
  * @license     http://opensource.org/licenses/MIT MIT License
  */
-namespace FuHsi;
+namespace FuHsi\FileCache;
 
 /**
  *
