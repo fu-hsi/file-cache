@@ -1,5 +1,7 @@
 <?php
 use FuHsi\FileCache\FileCache;
+
+//require 'vendor/autoload.php';
 require '../FileCache/FileCache.php';
 
 $options = array(
