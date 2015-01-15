@@ -1,0 +1,21 @@
+{
+    "name": "fu-hsi/file-cache",
+    "type": "library",
+    "description": "FileCache Class",
+    "keywords": ["cache","caching"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mariusz Kacki",
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "FuHsi": "."
+        }
+    }    
+}
