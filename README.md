@@ -1,9 +1,7 @@
-FileCache
-=========
+# FileCache
 FileCache class can cache your Web Service response result, rendered templates, SQL result sets etc.
 3 ways of serialize variables.
-Usage
------
+## Usage
 ```php
 <?php
 use FuHsi\FileCache\FileCache;
@@ -29,17 +27,6 @@ $result = $cache->get('my unique key', true, function ()
 
 var_dump($result);
 ?>
-```
-Cache file source
------------------
-```php
-<?php return array (
-  0 => 1,
-  1 => 2,
-  2 => 3,
-  3 => 4,
-  4 => 5,
-); ?>
 ```
 ## Tips
 Read serialized data from cache file without instantiate FileCache class.
