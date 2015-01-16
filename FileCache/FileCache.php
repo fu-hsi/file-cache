@@ -32,6 +32,12 @@ class FileCache
 
     const YEAR = 31104000;
 
+    const FORMAT_VAR_EXPORT = 1;
+
+    const FORMAT_SERIALIZE = 2;
+
+    const FORMAT_JSON = 3;
+
     /**
      *
      * @var array
@@ -46,7 +52,8 @@ class FileCache
     {
         $this->options = array_merge(array(
             'cacheDir' => '.',
-            'lifeTime' => self::HOUR
+            'lifeTime' => self::HOUR,
+            'format' => self::FORMAT_VAR_EXPORT
         ), $options);
     }
 
@@ -76,7 +83,18 @@ class FileCache
             if ($extendLife) {
                 touch($fileName);
             }
-            return include ($fileName);
+            
+            switch ($this->options['format']) {
+                case self::FORMAT_VAR_EXPORT:
+                    return include ($fileName);
+                
+                case self::FORMAT_SERIALIZE:
+                    return unserialize(include ($fileName));
+                
+                case self::FORMAT_JSON:
+                    return json_decode(include ($fileName));
+            }
+            return null;
         }
         
         if ($dataSourceCallback) {
@@ -98,7 +116,17 @@ class FileCache
     public function set($key, &$data)
     {
         $fileName = $this->getFileName($key);
-        return file_put_contents($fileName, '<?php return ' . var_export($data, true) . '; ?>');
+        switch ($this->options['format']) {
+            case self::FORMAT_VAR_EXPORT:
+                return file_put_contents($fileName, '<?php return ' . var_export($data, true) . '; ?>');
+            
+            case self::FORMAT_SERIALIZE:
+                return file_put_contents($fileName, '<?php return ' . var_export(serialize($data), true) . '; ?>');
+            
+            case self::FORMAT_JSON:
+                return file_put_contents($fileName, '<?php return ' . var_export(json_encode($data), true) . '; ?>');
+        }
+        return false;
     }
 }
 

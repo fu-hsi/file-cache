@@ -1,6 +1,7 @@
 FileCache
 =========
-FileCache class can cache your Web Service response result, rendered templates, SQL result sets etc. No serialization used.
+FileCache class can cache your Web Service response result, rendered templates, SQL result sets etc.
+3 ways of serialize variables.
 Usage
 -----
 ```php
@@ -10,7 +11,8 @@ require '../FileCache/FileCache.php';
 
 $options = array(
     'cacheDir' => __DIR__,
-    'lifeTime' => FileCache::HOUR
+    'lifeTime' => FileCache::HOUR,
+    'format' => FileCache::FORMAT_VAR_EXPORT
 );
 $cache = new FileCache($options);
 
@@ -40,7 +42,7 @@ Cache file source
 ); ?>
 ```
 ## Tips
-Read data from cache file without instantiate FileCache class and lifetime checking.
+Read serialized data from cache file without instantiate FileCache class.
 ```php
 $fromCache = include 'cached-data.php';
 ```
