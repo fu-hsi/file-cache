@@ -1,5 +1,6 @@
 FileCache
 =========
+FileCache class can cache your Web Service response result, rendered templates, SQL result sets etc. No serialization used.
 Usage
 -----
 ```php
@@ -37,4 +38,9 @@ Cache file source
   3 => 4,
   4 => 5,
 ); ?>
+```
+## Tips
+Read data from cache file without instantiate FileCache class and lifetime checking.
+```php
+$fromCache = include 'cached-data.php';
 ```
